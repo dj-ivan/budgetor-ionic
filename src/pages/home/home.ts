@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ContactPage } from '../contact/contact';
 
 @Component({
   selector: 'page-home',
@@ -9,6 +10,12 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
+  }
+
+  public navigateToSetup() {
+    // navigate to the new page if it is not the current page
+    // TODO: Replace with the user setup page
+    this.navCtrl.setRoot(ContactPage);
   }
 
 }

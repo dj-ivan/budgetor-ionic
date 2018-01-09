@@ -1,17 +1,17 @@
-<ion-header class="">
-  <ion-navbar>
+<!-- <ion-header >
+  <ion-navbar color="primary">
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
     <ion-title>CutBack</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content class="welcome-container" padding>
   <div class="title">
     Create your <br> <span class="budget">BUDGET</span> <br> in 4 <span class="easy">ea$y</span> steps.
   </div>
-  <div class="cta-button" routerLink="/budget-setup">
+  <div class="cta-button" (click)="navigateToSetup()">
     Get Started
   </div>
 </ion-content>
