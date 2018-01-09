@@ -16,8 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -28,12 +27,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    HomePage
   ],
   providers: [
     StatusBar,
-    SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

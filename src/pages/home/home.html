@@ -1,17 +1,17 @@
-<ion-header>
+<ion-header class="">
   <ion-navbar>
-    <ion-title>Home</ion-title>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>CutBack</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="welcome-container" padding>
+  <div class="title">
+    Create your <br> <span class="budget">BUDGET</span> <br> in 4 <span class="easy">ea$y</span> steps.
+  </div>
+  <div class="cta-button" routerLink="/budget-setup">
+    Get Started
+  </div>
 </ion-content>
