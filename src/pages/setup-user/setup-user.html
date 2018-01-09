@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary"> 
+    <ion-title>
+      Budget Setup
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-textarea type="text" formControlName="lastName"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>User Name</ion-label>
+      <ion-textarea type="text" formControlName="userName"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-textarea type="text" formControlName="email"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-textarea type="text" formControlName="password"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Monthly Income</ion-label>
+      <ion-textarea type="number" formControlName="monthlyIncome"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="!userForm.valid">Submit</button>
+  </form>
+</ion-content>
