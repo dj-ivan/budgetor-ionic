@@ -1,0 +1,69 @@
+<!--
+  Generated template for the SetupUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>setup-user</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+</ion-content>
+<div class="welcome-container">
+  <div class="intro-text-container">
+    <h2 class="title">
+      CutBack
+    </h2>
+    <span class="line-after-heading"></span>
+    <p class="motto">
+      Let's start with you and your income.
+    </p>
+  </div>
+  <div class="firstName-container">
+    <mat-form-field class="input-container">
+      <input #firstName matInput placeholder="First Name" type="string" class="income-input"
+      [formControl]="firstNameValidation" required>
+    <mat-error *ngIf="firstNameValidation.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="lastName-container">
+    <mat-form-field class="input-container">
+      <input #lastName matInput placeholder="Last Name" type="string" class="income-input"
+      [formControl]="lastNameValidation" required>
+    <mat-error *ngIf="lastNameValidation.invalid">{{getLastNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+ </div>
+ <div class="emailAddress-container">
+  <mat-form-field class="input-container">
+    <input #emailAddress matInput placeholder="Email Address" type="string" class="income-input"
+    [formControl]="emailValidation" required>
+    <mat-error *ngIf="emailValidation.invalid">{{getEmailErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+  <div class="userName-container">
+    <mat-form-field class="input-container">
+      <input #userName matInput placeholder="User Name" type="string" class="income-input"
+      [formControl]="userNameValidation" required>
+    <mat-error *ngIf="userNameValidation.invalid">{{getUserNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+ </div>
+  <div class="income-container">
+    <mat-form-field class="input-container">
+      <input #income matInput placeholder="Amount" type="number" class="income-input"
+      [formControl]="incomeValidation" required>
+    <mat-error *ngIf="incomeValidation.invalid">{{getIncomeErrorMessage()}}</mat-error>
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+  </div>
+  <div class="done-container" *ngIf="firstNameValidation.status=='VALID' && lastNameValidation.status=='VALID' && userNameValidation.status=='VALID' && emailValidation.status=='VALID' && incomeValidation.status=='VALID'">
+    <span class="done-button"><button mat-mini-fab color="primary" (click)="completeUserSetUp(firstName.value, lastName.value, emailAddress.value, userName.value, income.value)" routerLink="/expense-setup"><i class="material-icons">done</i></button></span>
+  </div>
+</div>
