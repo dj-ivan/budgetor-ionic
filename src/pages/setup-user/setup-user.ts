@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { CacheService } from '../../services/cache-service';
+import { SetupExpensesPage } from '../setup-expenses/setup-expenses';
 
 @Component({
   selector: 'page-setup-user',
@@ -25,7 +26,7 @@ export class SetupUserPage {
     //console.log(this.userForm.value);
     this.cache.user = this.userForm.value;
     console.log(this.cache.user);
-    //this.navCtrl.push(SetupBudgetPage);
+    this.navCtrl.push(SetupExpensesPage);
   }
 
 }

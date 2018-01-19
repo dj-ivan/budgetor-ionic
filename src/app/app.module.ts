@@ -8,13 +8,15 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { CacheService } from '../services/cache-service';
 import { SetupUserPage } from '../pages/setup-user/setup-user';
+import { SetupExpensesPage } from '../pages/setup-expenses/setup-expenses';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     HomePage,
-    SetupUserPage
+    SetupUserPage,
+    SetupExpensesPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { SetupUserPage } from '../pages/setup-user/setup-user';
     MyApp,
     AboutPage,
     HomePage,
-    SetupUserPage
+    SetupUserPage,
+    SetupExpensesPage
   ],
   providers: [
     StatusBar,
