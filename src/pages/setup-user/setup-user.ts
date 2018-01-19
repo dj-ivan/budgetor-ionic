@@ -12,17 +12,17 @@ export class SetupUserPage {
 
   constructor(public navCtrl: NavController, private formBuilder: FormBuilder, public cache: CacheService) {
     this.userForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: [''],
-      userName: [''],
-      email: ['', Validators.required],
-      password: [''],
-      monthlyIncome: ['']
+      // firstName: ['', Validators.required],
+      // lastName: [''],
+      // userName: [''],
+      // email: [''],
+      // password: [''],
+      monthlyIncome: ['', Validators.required]
     });
   }
 
   public submitForm() {
-    console.log(this.userForm.value);
+    //console.log(this.userForm.value);
     this.cache.user = this.userForm.value;
     console.log(this.cache.user);
     //this.navCtrl.push(SetupBudgetPage);

@@ -1,3 +1,16 @@
-page-contact {
+.title {
+  padding-top: 2rem;
+  margin: auto;
+  text-align: center;
+}
 
+.setup-user-form-container {
+    margin: 0 auto;
+    padding: 1rem;
+
+    .input-group {
+        margin: auto;
+        width: 80%;
+        padding: 1rem;
+    }
 }
