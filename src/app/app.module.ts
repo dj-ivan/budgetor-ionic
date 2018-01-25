@@ -6,16 +6,17 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { CacheService } from '../services/cache-service';
 import { SetupUserPage } from '../pages/setup-user/setup-user';
+import { SetupExpensesPage } from '../pages/setup-expenses/setup-expenses';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     HomePage,
-    SetupUserPage
+    SetupUserPage,
+    SetupExpensesPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,8 @@ import { SetupUserPage } from '../pages/setup-user/setup-user';
     MyApp,
     AboutPage,
     HomePage,
-    SetupUserPage
+    SetupUserPage,
+    SetupExpensesPage
   ],
   providers: [
     StatusBar,

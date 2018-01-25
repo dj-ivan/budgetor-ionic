@@ -14,7 +14,6 @@ export class HomePage {
 
   public navigateToSetup() {
     // navigate to the new page if it is not the current page
-    // TODO: Replace with the user setup page
     this.navCtrl.push(SetupUserPage);
   }
 

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Budget Setup
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addExpense()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div class="title">Now lets add your monthly expenses.</div>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let expense of expenses">
+          {{expense.name}}
+        </ion-item>
+    </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

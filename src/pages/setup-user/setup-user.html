@@ -7,31 +7,37 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
-    <ion-item>
-      <ion-label>First Name</ion-label>
-      <ion-input type="text" formControlName="firstName"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Last Name</ion-label>
-      <ion-textarea type="text" formControlName="lastName"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label>User Name</ion-label>
-      <ion-textarea type="text" formControlName="userName"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label>Email</ion-label>
-      <ion-textarea type="text" formControlName="email"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label>Password</ion-label>
-      <ion-textarea type="text" formControlName="password"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label>Monthly Income</ion-label>
-      <ion-textarea type="number" formControlName="monthlyIncome"></ion-textarea>
-    </ion-item>
-    <button ion-button type="submit" [disabled]="!userForm.valid">Submit</button>
-  </form>
+  <ion-card>
+      <ion-card-header>
+          <div class="title">Lets start by how much you make a month.</div>
+      </ion-card-header>
+      <ion-card-content>
+          <form class="setup-user-form-container" [formGroup]="userForm" (ngSubmit)="submitForm()">
+              <!-- <ion-item class="input-group">
+                <ion-label>First Name:</ion-label>
+                <ion-input type="text" formControlName="firstName"></ion-input>
+              </ion-item>
+              <ion-item class="input-group">
+                <ion-label>Last Name:</ion-label>
+                <ion-textarea type="text" formControlName="lastName"></ion-textarea>
+              </ion-item> -->
+              <!-- <ion-item class="input-group"> -->
+                <!-- <ion-label>Email:</ion-label>
+                <ion-textarea type="text" formControlName="email"></ion-textarea>
+              </ion-item>
+              <ion-item class="input-group">
+                <ion-label>Password:</ion-label>
+                <ion-textarea type="text" formControlName="password"></ion-textarea>
+              </ion-item> -->
+              <ion-item class="input-group">
+                <ion-label>$</ion-label>
+                <ion-input type="number" formControlName="monthlyIncome"></ion-input>
+              </ion-item>
+              <button ion-button type="submit" [disabled]="!userForm.valid">Submit</button>
+            </form>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
+
+
+
