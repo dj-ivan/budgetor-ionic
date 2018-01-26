@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Expense } from '../../types/expense-model';
+import { Expense, ExpenseCategory, ExpenseType } from '../../types/expense-model';
 import { CacheService } from '../../services/cache-service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the SetupExpensesPage page.
@@ -24,8 +25,21 @@ export class SetupExpensesPage {
       amount: 2344
     }
   ];
+  public categories: ExpenseCategory[] = this.cache.expenseCategories;
+  public newExpense = '';
+  public expenseForm: FormGroup;
+  public id: 1;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public cache: CacheService) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public cache: CacheService,
+    private formBuilder: FormBuilder,) {
+      this.expenseForm = this.formBuilder.group({
+        expenseCategory: ['', Validators.required],
+        expenseType:  ['', Validators.required],
+        name:  ['', Validators.required],
+        amount:  ['', Validators.required]
+      });
   }
 
   ionViewDidLoad() {
@@ -33,7 +47,25 @@ export class SetupExpensesPage {
   }
 
   public addExpense() {
-    console.log('It works!')
+    console.log('It works!');
+    console.log(this.expenseForm.value);
+    let expenseType = {
+    name: this.expenseForm.value.expenseType
+    } as ExpenseType;
+    let expenseCategory = {
+      name: this.expenseForm.value.expenseCategory
+    } as ExpenseCategory;
+    let newExpense = {
+      category: expenseCategory,
+      type: expenseType,
+      expenseId: this.id++,
+      name: this.expenseForm.value.name,
+      amount: this.expenseForm.value.amount
+    } as Expense;
+    this.expenses.push(newExpense);
+    this.expenseForm.reset();
   }
+
+
 
 }

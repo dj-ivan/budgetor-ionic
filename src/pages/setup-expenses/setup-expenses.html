@@ -17,11 +17,32 @@
       <div class="title">Now lets add your monthly expenses.</div>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let expense of expenses">
-          {{expense.name}}
+      <form [formGroup]="expenseForm">
+        <ion-item>
+          <ion-select formControlName="expenseCategory" [placeholder]="'Category'">
+            <ion-option *ngFor="let category of categories">{{category}}</ion-option>
+          </ion-select>
         </ion-item>
-    </ion-list>
+        <ion-item>
+          <ion-select formControlName="expenseType" [placeholder]="'Type'">
+            <ion-option value="Fixed">Fixed</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" formControlName="name" placeholder="Name of Expense"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>$</ion-label>
+          <ion-input formControlName="amount" type="number"></ion-input>
+        </ion-item>
+      </form>
+
+      <ion-list>
+
+        <ion-item *ngFor="let expense of expenses">
+          {{expense.category.name}} | {{expense.name}} | ${{expense.amount}}
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>
