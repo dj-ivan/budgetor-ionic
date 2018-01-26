@@ -19,13 +19,13 @@
     <ion-card-content>
       <form [formGroup]="expenseForm">
         <ion-item>
-          <ion-select formControlName="expenseCategory" [placeholder]="'Category'">
-            <ion-option *ngFor="let category of categories">{{category}}</ion-option>
+          <ion-select formControlName="expenseCategory" [placeholder]="'Category'" interface="popover">
+            <ion-option *ngFor="let category of categories">{{category.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
           <ion-select formControlName="expenseType" [placeholder]="'Type'">
-            <ion-option value="Fixed">Fixed</ion-option>
+            <ion-option *ngFor="let type of types" value="Fixed">Fixed</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>

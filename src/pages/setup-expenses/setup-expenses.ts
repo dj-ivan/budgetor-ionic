@@ -40,6 +40,7 @@ export class SetupExpensesPage {
         name:  ['', Validators.required],
         amount:  ['', Validators.required]
       });
+      console.log(this.categories);
   }
 
   ionViewDidLoad() {
