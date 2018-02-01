@@ -10,7 +10,6 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
   <ion-card>
     <ion-card-header>
@@ -24,8 +23,8 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-select formControlName="expenseType" [placeholder]="'Type'">
-            <ion-option *ngFor="let type of types" value="Fixed">Fixed</ion-option>
+          <ion-select formControlName="expenseType" [placeholder]="'Type'" interface="popover">
+            <ion-option *ngFor="let type of types">{{type.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
@@ -36,11 +35,12 @@
           <ion-input formControlName="amount" type="number"></ion-input>
         </ion-item>
       </form>
-
       <ion-list>
-
         <ion-item *ngFor="let expense of expenses">
           {{expense.category.name}} | {{expense.name}} | ${{expense.amount}}
+          <button ion-button icon-only (click)="removeExpense(expense)">
+            <ion-icon name="close"></ion-icon>
+          </button>
         </ion-item>
       </ion-list>
     </ion-card-content>

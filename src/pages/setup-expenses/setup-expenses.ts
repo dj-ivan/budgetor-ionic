@@ -26,6 +26,7 @@ export class SetupExpensesPage {
     }
   ];
   public categories: ExpenseCategory[] = this.cache.expenseCategories;
+  public types: ExpenseType[] = this.cache.expenseTypes;
   public newExpense = '';
   public expenseForm: FormGroup;
   public id: 1;
@@ -65,6 +66,12 @@ export class SetupExpensesPage {
     } as Expense;
     this.expenses.push(newExpense);
     this.expenseForm.reset();
+  }
+
+  public removeExpense(expense: Expense) {
+    console.log('Removing expense');
+    let index = this.expenses.indexOf(expense);
+    this.expenses.splice(index);
   }
 
 

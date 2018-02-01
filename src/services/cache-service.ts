@@ -30,14 +30,14 @@ export class CacheService {
     }
   ];
   public expenseTypes: ExpenseType[] = [
-    new ExpenseType, {
+    {
       name: 'Fixed Expense',
       typeId: 1
-    },
-    new ExpenseType, {
+    } as ExpenseType,
+    {
       name: 'Variable Expense',
       typeId: 2
-    }
+    } as ExpenseType
   ];
 
   constructor() { }
