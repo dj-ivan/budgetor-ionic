@@ -34,14 +34,14 @@ export class SetupExpensesPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public cache: CacheService,
-    private formBuilder: FormBuilder,) {
-      this.expenseForm = this.formBuilder.group({
-        expenseCategory: ['', Validators.required],
-        expenseType:  ['', Validators.required],
-        name:  ['', Validators.required],
-        amount:  ['', Validators.required]
-      });
-      console.log(this.categories);
+    private formBuilder: FormBuilder, ) {
+    this.expenseForm = this.formBuilder.group({
+      expenseCategory: [{} as ExpenseCategory, Validators.required],
+      expenseType: [{} as ExpenseType, Validators.required],
+      name: ['', Validators.required],
+      amount: [0, Validators.required]
+    });
+    console.log(this.categories);
   }
 
   ionViewDidLoad() {
@@ -49,14 +49,17 @@ export class SetupExpensesPage {
   }
 
   public addExpense() {
-    console.log('It works!');
+    console.log('Adding Expense!');
     console.log(this.expenseForm.value);
+
     let expenseType = {
-    name: this.expenseForm.value.expenseType
+      name: this.expenseForm.value.expenseType
     } as ExpenseType;
+
     let expenseCategory = {
       name: this.expenseForm.value.expenseCategory
     } as ExpenseCategory;
+
     let newExpense = {
       category: expenseCategory,
       type: expenseType,
@@ -64,7 +67,15 @@ export class SetupExpensesPage {
       name: this.expenseForm.value.name,
       amount: this.expenseForm.value.amount
     } as Expense;
+
     this.expenses.push(newExpense);
+
+    try {
+      this.cache.expenses = this.expenses;
+    } catch (error) {
+      console.log('Failed to add new expense to cache')
+    }
+
     this.expenseForm.reset();
   }
 
