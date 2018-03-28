@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Expense } from '../../types/expense-model';
+import { Expense, ExpenseCategory, ExpenseType } from '../../types/expense-model';
 import { CacheService } from '../../services/cache-service';
-
-/**
- * Generated class for the SetupExpensesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-setup-expenses',
@@ -24,8 +18,15 @@ export class SetupExpensesPage {
       amount: 2344
     }
   ];
+  public categories: ExpenseCategory[] = this.cache.expenseCategories;
+  public types: ExpenseType[] = this.cache.expenseTypes;
+  public newExpense = {} as Expense;
+  public id = 1;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public cache: CacheService) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public cache: CacheService) {
+    console.log(this.categories);
   }
 
   ionViewDidLoad() {
@@ -33,7 +34,25 @@ export class SetupExpensesPage {
   }
 
   public addExpense() {
-    console.log('It works!')
+    console.log('Adding Expense!');
+    console.log(this.newExpense);
+    this.newExpense.expenseId = this.id++;
+
+    this.expenses.push(this.newExpense);
+
+    try {
+      this.cache.expenses = this.expenses;
+      this.newExpense = {} as Expense;
+    } catch (error) {
+      console.log('Failed to add new expense to cache')
+    }
+    
   }
 
+  public removeExpense(expense: Expense) {
+    debugger;
+    console.log(`Removing expense`, expense);
+    let index = this.expenses.indexOf(expense);
+    this.expenses.splice(index,1);
+  }
 }

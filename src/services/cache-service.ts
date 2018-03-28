@@ -8,36 +8,36 @@ export class CacheService {
   public user: User = new User();
   public expenses: Expense[] = [];
   public expenseCategories: ExpenseCategory[] = [
-    new ExpenseCategory, {
+    {
       name: 'Housing',
       categoryId: 1
-    },
-    new ExpenseCategory, {
+    } as ExpenseCategory,
+    {
       name: 'Utilities',
       categoryId: 2
-    },
-    new ExpenseCategory, {
+    } as ExpenseCategory,
+    {
       name: 'Food and Groceries',
       categoryId: 3
-    },
-    new ExpenseCategory, {
+    } as ExpenseCategory,
+    {
       name: 'Personal Care',
       categoryId: 4
-    },
-    new ExpenseCategory, {
+    } as ExpenseCategory,
+    {
       name: 'Entertainment',
       categoryId: 5
     }
   ];
   public expenseTypes: ExpenseType[] = [
-    new ExpenseType, {
+    {
       name: 'Fixed Expense',
       typeId: 1
-    },
-    new ExpenseType, {
+    } as ExpenseType,
+    {
       name: 'Variable Expense',
       typeId: 2
-    }
+    } as ExpenseType
   ];
 
   constructor() { }

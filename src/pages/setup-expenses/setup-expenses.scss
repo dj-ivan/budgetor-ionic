@@ -1,3 +1,11 @@
-page-setup-expenses {
+@import './../../theme/variables';
 
+page-setup-expenses {
+  .setup-expenses-container {
+    .add-expense-container {
+      .add-expense-title {
+        font-size: $textSizeNormal;
+      }
+    }
+  }
 }
