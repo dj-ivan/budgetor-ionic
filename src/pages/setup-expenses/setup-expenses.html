@@ -10,39 +10,41 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
-  <ion-card>
+<ion-content class="setup-expenses-container">
+  <ion-card class="add-expense-container">
     <ion-card-header>
-      <div class="title">Now lets add your monthly expenses.</div>
+      <div class="add-expense-title">Now lets add your monthly expenses.</div>
     </ion-card-header>
     <ion-card-content>
-      <form [formGroup]="expenseForm">
-        <ion-item>
-          <ion-select formControlName="expenseCategory" [placeholder]="'Category'" interface="popover">
-            <ion-option *ngFor="let category of categories">{{category.name}}</ion-option>
+      <div class="form-control">
+        <ion-item class="expense-category">
+          <ion-select [(ngModel)]="newExpense.category" required [placeholder]="'Category'" interface="popover">
+            <ion-option *ngFor="let category of categories" [value]="category">{{category.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-select formControlName="expenseType" [placeholder]="'Type'" interface="popover">
-            <ion-option *ngFor="let type of types">{{type.name}}</ion-option>
+          <ion-select [(ngModel)]="newExpense.type" required [placeholder]="'Type'" interface="popover">
+            <ion-option *ngFor="let type of types" [value]="type">{{type.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-input type="text" formControlName="name" placeholder="Name of Expense"></ion-input>
+          <ion-input type="text" [(ngModel)]="newExpense.name" required placeholder="Name of Expense"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>$</ion-label>
-          <ion-input formControlName="amount" type="number"></ion-input>
+          <ion-input [(ngModel)]="newExpense.amount" required type="number"></ion-input>
         </ion-item>
-      </form>
-      <ion-list>
-        <ion-item *ngFor="let expense of expenses">
-          {{expense.category.name}} | {{expense.name}} | ${{expense.amount}}
-          <button ion-button icon-only (click)="removeExpense(expense)">
-            <ion-icon name="close"></ion-icon>
-          </button>
-        </ion-item>
-      </ion-list>
+      </div>
     </ion-card-content>
   </ion-card>
+  <div class="expense-container">
+    <ion-list>
+      <ion-item *ngFor="let expense of expenses">
+        {{expense.category.name}} | {{expense.name}} | ${{expense.amount}}
+        <button ion-button icon-only (click)="removeExpense(expense)">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

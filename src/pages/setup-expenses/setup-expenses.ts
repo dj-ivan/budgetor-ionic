@@ -4,13 +4,6 @@ import { Expense, ExpenseCategory, ExpenseType } from '../../types/expense-model
 import { CacheService } from '../../services/cache-service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-/**
- * Generated class for the SetupExpensesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-setup-expenses',
   templateUrl: 'setup-expenses.html',
@@ -27,20 +20,12 @@ export class SetupExpensesPage {
   ];
   public categories: ExpenseCategory[] = this.cache.expenseCategories;
   public types: ExpenseType[] = this.cache.expenseTypes;
-  public newExpense = '';
-  public expenseForm: FormGroup;
-  public id: 1;
+  public newExpense = {} as Expense;
+  public id = 1;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public cache: CacheService,
-    private formBuilder: FormBuilder, ) {
-    this.expenseForm = this.formBuilder.group({
-      expenseCategory: [{} as ExpenseCategory, Validators.required],
-      expenseType: [{} as ExpenseType, Validators.required],
-      name: ['', Validators.required],
-      amount: [0, Validators.required]
-    });
+    public cache: CacheService) {
     console.log(this.categories);
   }
 
@@ -50,41 +35,24 @@ export class SetupExpensesPage {
 
   public addExpense() {
     console.log('Adding Expense!');
-    console.log(this.expenseForm.value);
+    console.log(this.newExpense);
+    this.newExpense.expenseId = this.id++;
 
-    let expenseType = {
-      name: this.expenseForm.value.expenseType
-    } as ExpenseType;
-
-    let expenseCategory = {
-      name: this.expenseForm.value.expenseCategory
-    } as ExpenseCategory;
-
-    let newExpense = {
-      category: expenseCategory,
-      type: expenseType,
-      expenseId: this.id++,
-      name: this.expenseForm.value.name,
-      amount: this.expenseForm.value.amount
-    } as Expense;
-
-    this.expenses.push(newExpense);
+    this.expenses.push(this.newExpense);
 
     try {
       this.cache.expenses = this.expenses;
+      this.newExpense = {} as Expense;
     } catch (error) {
       console.log('Failed to add new expense to cache')
     }
-
-    this.expenseForm.reset();
+    
   }
 
   public removeExpense(expense: Expense) {
-    console.log('Removing expense');
+    debugger;
+    console.log(`Removing expense`, expense);
     let index = this.expenses.indexOf(expense);
-    this.expenses.splice(index);
+    this.expenses.splice(index,1);
   }
-
-
-
 }
