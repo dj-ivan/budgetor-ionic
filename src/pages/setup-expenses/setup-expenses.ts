@@ -22,11 +22,16 @@ export class SetupExpensesPage {
   public types: ExpenseType[] = this.cache.expenseTypes;
   public newExpense = {} as Expense;
   public id = 1;
+  public expenseForm: FormGroup;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public cache: CacheService) {
+    public cache: CacheService,
+    private formBuilder: FormBuilder,) {
     console.log(this.categories);
+    this.expenseForm = this.formBuilder.group({
+      monthlyIncome: ['', Validators.required]
+    });
   }
 
   ionViewDidLoad() {
