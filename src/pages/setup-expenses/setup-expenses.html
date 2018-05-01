@@ -47,4 +47,7 @@
       </ion-item>
     </ion-list>
   </div>
+  <form class="setup-user-form-container" [formGroup]="expenseForm" (ngSubmit)="submitForm()">
+    <button ion-button type="submit" [disabled]="!expenseForm.valid">Submit</button>
+  </form>
 </ion-content>

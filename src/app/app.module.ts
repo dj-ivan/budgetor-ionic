@@ -9,6 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { CacheService } from '../services/cache-service';
 import { SetupUserPage } from '../pages/setup-user/setup-user';
 import { SetupExpensesPage } from '../pages/setup-expenses/setup-expenses';
+	
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Step1 } from '../pages/transition-pages/step-1/step-1';
+import { Step2 } from '../pages/transition-pages/step-2/step-2';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,14 @@ import { SetupExpensesPage } from '../pages/setup-expenses/setup-expenses';
     AboutPage,
     HomePage,
     SetupUserPage,
-    SetupExpensesPage
+    SetupExpensesPage,
+    Step1,
+    Step2
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,7 +35,9 @@ import { SetupExpensesPage } from '../pages/setup-expenses/setup-expenses';
     AboutPage,
     HomePage,
     SetupUserPage,
-    SetupExpensesPage
+    SetupExpensesPage,
+    Step1,
+    Step2
   ],
   providers: [
     StatusBar,
