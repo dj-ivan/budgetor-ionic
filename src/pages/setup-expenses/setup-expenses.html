@@ -16,23 +16,23 @@
       <div class="add-expense-title">Now lets add your monthly expenses.</div>
     </ion-card-header>
     <ion-card-content>
-      <div class="form-control">
+      <div class="form-control" [formGroup]="expenseForm">
         <ion-item class="expense-category">
-          <ion-select [(ngModel)]="newExpense.category" required [placeholder]="'Category'" interface="popover">
+          <ion-select [formControl]="expenseForm.controls['category']" required [placeholder]="'Category'" interface="popover">
             <ion-option *ngFor="let category of categories" [value]="category">{{category.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-select [(ngModel)]="newExpense.type" required [placeholder]="'Type'" interface="popover">
+          <ion-select [formControl]="expenseForm.controls['type']" required [placeholder]="'Type'" interface="popover">
             <ion-option *ngFor="let type of types" [value]="type">{{type.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-input type="text" [(ngModel)]="newExpense.name" required placeholder="Name of Expense"></ion-input>
+          <ion-input type="text" [formControl]="expenseForm.controls['name']" required [placeholder]="'Name of Expense'"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>$</ion-label>
-          <ion-input [(ngModel)]="newExpense.amount" required type="number"></ion-input>
+          <ion-label>Amount $</ion-label>
+          <ion-input [formControl]="expenseForm.controls['amount']" required type="number"></ion-input>
         </ion-item>
       </div>
     </ion-card-content>
@@ -46,8 +46,6 @@
         </button>
       </ion-item>
     </ion-list>
+    <button ion-button [disabled]="!expenses.length">Next</button>
   </div>
-  <form class="setup-user-form-container" [formGroup]="expenseForm" (ngSubmit)="submitForm()">
-    <button ion-button type="submit" [disabled]="!expenseForm.valid">Submit</button>
-  </form>
 </ion-content>

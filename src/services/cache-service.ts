@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { User } from '../types/user-model';
 import { Expense, ExpenseCategory, ExpenseType } from '../types/expense-model';
+import { Account } from '../types/account-model';
+import { Income } from '../types/income-model';
 
 @Injectable()
 export class CacheService {
 
+  public account: Account = new Account();
+  public income: Income = new Income();
   public user: User = new User();
   public expenses: Expense[] = [];
+
+  // Seeding the db
   public expenseCategories: ExpenseCategory[] = [
     {
       name: 'Housing',
