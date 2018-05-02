@@ -23,9 +23,7 @@ export class SetupUserPage {
   }
 
   public submitForm() {
-    //console.log(this.userForm.value);
-    this.cache.user = this.userForm.value;
-    console.log(this.cache.user);
+    this.cache.income = this.userForm.value;
     this.navCtrl.push(SetupExpensesPage);
   }
 
