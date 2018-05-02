@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { CacheService } from '../../services/cache-service';
-import { SetupExpensesPage } from '../setup-expenses/setup-expenses';
+import { Step2 } from '../transition-pages/step-2/step-2';
 
 @Component({
   selector: 'page-setup-user',
@@ -24,7 +24,7 @@ export class SetupUserPage {
 
   public submitForm() {
     this.cache.income = this.userForm.value;
-    this.navCtrl.push(SetupExpensesPage);
+    this.navCtrl.push(Step2);
   }
 
 }
